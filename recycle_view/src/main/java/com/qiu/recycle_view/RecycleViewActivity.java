@@ -35,11 +35,17 @@ public class RecycleViewActivity extends AppCompatActivity {
 
         InitView();
 
+        OnClick();
+
         InitData();
 
 
     }
 
+    /**
+     *
+     * 初始化 ui
+     */
     private void InitView(){
 
 
@@ -49,7 +55,8 @@ public class RecycleViewActivity extends AppCompatActivity {
 
         DataModel.getInstance().InitData();
 
-
+        //注册刷新数据
+        DataModel.getInstance().RegisterIRefreshData(RefreshDataCallBack());
 
 
         adapter=new RecycleAdapter(RecycleViewActivity.this, CacheList);
@@ -77,6 +84,31 @@ public class RecycleViewActivity extends AppCompatActivity {
 
 //endregion
 
+
+    }
+
+
+    /**
+     * 点击事件
+     */
+    private void OnClick(){
+        findViewById(R.id.btnMusic).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                DataModel.getInstance().InitMusicData();
+
+            }
+        });
+
+        findViewById(R.id.btnTest).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                DataModel.getInstance().InitTestData();
+
+            }
+        });
 
     }
 
@@ -149,6 +181,26 @@ public class RecycleViewActivity extends AppCompatActivity {
 
         runnable.run();
 
+    }
+
+    private void InitCacheData(){
+        if(CacheList.size()>0)
+            CacheList.clear();
+
+        LoadMoreData(0,10,()->{});
+
+
+    }
+
+    private IRefreshData RefreshDataCallBack(){
+        return new IRefreshData() {
+            @Override
+            public void onRefresh() {
+
+                InitCacheData();
+
+            }
+        };
     }
 
 
