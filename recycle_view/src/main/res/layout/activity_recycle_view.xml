@@ -36,13 +36,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!--设置刷新头-->
-        <com.scwang.smart.refresh.header.ClassicsHeader
+<!--        &lt;!&ndash;设置刷新头&ndash;&gt;-->
+<!--        <com.scwang.smart.refresh.header.ClassicsHeader-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:srlEnableLastTime="false"-->
+<!--            app:srlTextPulling="加载上一页数据" />-->
+<!--        &lt;!&ndash;内容&ndash;&gt;-->
+        <com.scwang.smart.refresh.header.MaterialHeader
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srlEnableLastTime="false"
-            app:srlTextPulling="加载上一页数据" />
-        <!--内容-->
+            app:srlTextPulling="刷新数据">
+
+        </com.scwang.smart.refresh.header.MaterialHeader>
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -56,11 +62,15 @@
 
 
         <!--设置刷新尾-->
-        <com.scwang.smart.refresh.footer.ClassicsFooter
+<!--        <com.scwang.smart.refresh.footer.ClassicsFooter-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:srlTextPulling="加载下一页数据" />-->
+
+        <com.scwang.smart.refresh.footer.BallPulseFooter
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:srlTextPulling="加载下一页数据" />
-
 
     </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 
