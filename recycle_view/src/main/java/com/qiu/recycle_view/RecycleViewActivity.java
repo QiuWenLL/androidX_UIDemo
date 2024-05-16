@@ -1,6 +1,7 @@
 package com.qiu.recycle_view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,13 +37,20 @@ public class RecycleViewActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         //线性布局
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(RecycleViewActivity.this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+
+        //线性布局 HORIZONTAL
 //        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(RecycleViewActivity.this);
+//        linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
 //        recyclerView.setLayoutManager(linearLayoutManager);
 
+
         //grid 布局
-        GridLayoutManager layoutManager = new GridLayoutManager(RecycleViewActivity.this,3);
-//        layoutManager.setOrientation(RecyclerView.HORIZONTAL);  也能设置横向滚动
-        recyclerView.setLayoutManager(layoutManager);
+//        GridLayoutManager layoutManager = new GridLayoutManager(RecycleViewActivity.this,2);
+////        layoutManager.setOrientation(RecyclerView.HORIZONTAL); // 也能设置横向滚动
+//        recyclerView.setLayoutManager(layoutManager);
 
 
 
